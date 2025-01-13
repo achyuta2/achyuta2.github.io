@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- IMG Tag Pixel Integration -->
-<!--     <img src="https://www.facebook.com/tr?id=1707729743426153&ev=PageView&noscript=1" /> -->
+    <img src="https://www.facebook.com/tr?id=1707729743426153&ev=PageView&noscript=1" />
     <title>Facebook Pixel Add to Cart with Form</title>
     <!-- Facebook Pixel Code -->
     <script>
@@ -68,6 +68,12 @@
                 currency: 'USD',
                 user_name: name
             });
+
+            fbq('trackSingle', '1707729743426153', 'AddToWishlist', {
+                  value: 19.99,
+                  currency: 'USD',
+                  content_name: 'Form'
+                });
         });
     </script>
 </body>
