@@ -44,6 +44,8 @@
         <button type="button" id="addToCartButton">Add to Cart</button>
 
         <button type="button" id="addToWishlistButton">Add to Wishlist</button>
+
+        <button type="button" id="subscribeButton">Subscribe Price Change</button>
     </form>
 
     <!-- JavaScript to trigger the addToCart event -->
@@ -69,6 +71,28 @@
                 user_name: name
             });
         });
+        
+        document.getElementById('subscribeButton').addEventListener('click', function() {
+            // Get the values from the form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert('Please enter both your name and email.');
+                return;
+            }
+
+            // Trigger Facebook Pixel custom event - Subscribe with user data
+            fbq('track', 'Subscribe', {
+                content_name: 'Test Product',
+                content_category: 'Example Category',
+                content_ids: ['5678'],
+                content_type: 'product',
+                value: 14.99,
+                currency: 'USD',
+                user_name: name
+            });            
+        }); 
     </script>
 </body>
 </html>
